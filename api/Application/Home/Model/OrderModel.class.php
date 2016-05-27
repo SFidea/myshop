@@ -24,15 +24,25 @@ class OrderModel extends Model {
     }
     
     /*
-     * 根据商品ID获得商品信息
+     * 根据商品ID和用户信息获得商品信息
      * */
-    public function read_order_info($order_id){
+    public function read_order_info($order_id,$user_id){
         $id = intval($order_id);
-        return M('order_info')->where("order_id =".$id)->find();
+        $uid = intval($user_id);
+        return M('order_info')->where("order_id =".$id." and user_id=".$uid." and is_delete = 0")->find();
     }
 
+    /*
+     * 根据id逻辑删除订单状态
+     */
+    public function del_order_info($order_id){
+        $id = intval($order_id);
+        $data['is_delete'] = 1;
+        return M('order_info')->where("order_id =".$id)->data($data)->save(); // 根据条件更新记录
+    }
+    
     /*根据where条件统计订单数量*/
     public function count_by_where($where){
-        return  M('order_info')->where($where)->count();
+        return  M('order_info')->where($where." and is_delete = 0")->count();
     }
 }

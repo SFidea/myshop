@@ -14,7 +14,7 @@ return array(
     'MODULE_ALLOW_LIST'    =>    array('Home'),	//模块列表
     'DEFAULT_MODULE'       =>    'Home',  // 默认模块
     //自定义
-    'main_domain'	=> 'http://localhost/gl/',
+    'main_domain'	=> 'http://localhost/shop/',
     'static_domain'	=> 'http://localhost/static/',//静态资源地址
     'gl_domain'	=> 'http://localhost/gl/',//
     'm_domain'=>'http://localhost/mobile/',//wap网页地址

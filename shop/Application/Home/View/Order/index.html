@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>title(shop执行控制器内的方法):{$title}</div>
+        <div>content(远程api调用执行的方法):{$content}</div>
+        <php>if($next != "end"){</php>
+            <a href="{:C('main_domain')}order/{$next}?order_id={$id}">转入下一条流程</a>
+        <php>}</php>
+    </body>
+</html>
