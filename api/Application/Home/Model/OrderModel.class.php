@@ -20,9 +20,25 @@ class OrderModel extends Model {
      */
     public function order_sort_return($order_id){
         $id = intval($order_id);
-        return M('order_info')->where("order_id =".$id)->getField('action_sort',true);
+        $tp_id =  M('order_info')->where("order_id =".$id)->getField('action_sort',true);
+        return M('order_sort')->where("id =".$tp_id[0])->getField('controlorder',true);
     }
     
+    /**
+     * 订单生成及增加
+     */
+    public function order_add(){
+        return M('order_info')->data($data)->add();
+    }
+    
+    /**
+     * 订单更新
+     */
+    public function order_update(){
+        return M('order_info')->data($data)->save();   
+    }
+
+
     /*
      * 根据商品ID和用户信息获得商品信息
      * */

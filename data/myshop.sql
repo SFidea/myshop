@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2016-05-27 18:23:25
+Date: 2016-05-28 11:15:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -39,7 +39,7 @@ CREATE TABLE `ecs_ad` (
   PRIMARY KEY (`ad_id`),
   KEY `position_id` (`position_id`) USING BTREE,
   KEY `enabled` (`enabled`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=993 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ecs_ad
@@ -61,7 +61,7 @@ CREATE TABLE `ecs_ad_custom` (
   `target_type` tinyint(3) DEFAULT '1' COMMENT '重定向类型，1=商品 2=分类',
   `sort_order` int(11) DEFAULT '1' COMMENT '排序字段',
   PRIMARY KEY (`ad_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ecs_ad_custom
@@ -79,7 +79,7 @@ CREATE TABLE `ecs_ad_position` (
   `position_desc` varchar(255) NOT NULL DEFAULT '',
   `position_style` text NOT NULL,
   PRIMARY KEY (`position_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=500 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ecs_ad_position
@@ -98,7 +98,7 @@ CREATE TABLE `ecs_dsf_login` (
   `ifbind` int(2) DEFAULT '0' COMMENT '是否绑定 0 否 1已经绑定',
   `userid` bigint(11) DEFAULT '0' COMMENT '绑定userid',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=252 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ecs_dsf_login
@@ -178,7 +178,7 @@ CREATE TABLE `ecs_goods` (
   KEY `promote_start_date` (`promote_start_date`) USING BTREE,
   KEY `goods_number` (`goods_number`) USING BTREE,
   KEY `sort_order` (`sort_order`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=25097 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ecs_goods
@@ -212,14 +212,22 @@ CREATE TABLE `ecs_order_action` (
 DROP TABLE IF EXISTS `ecs_order_controlname`;
 CREATE TABLE `ecs_order_controlname` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'order控制器内方法名称',
+  `cname` varchar(255) DEFAULT NULL COMMENT 'control控制器名称',
   `controlname` varchar(255) DEFAULT NULL,
+  `depict` varchar(255) DEFAULT NULL COMMENT '控制器描述',
   `is_del` tinyint(4) DEFAULT '0' COMMENT '逻辑删除标志',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ecs_order_controlname
 -- ----------------------------
+INSERT INTO `ecs_order_controlname` VALUES ('1', 'Order', 'index', '主要流程入口', '0');
+INSERT INTO `ecs_order_controlname` VALUES ('2', 'Order', 'first', '订单测试处理流程1', '0');
+INSERT INTO `ecs_order_controlname` VALUES ('3', 'Order', 'second', '订单测试处理流程2', '0');
+INSERT INTO `ecs_order_controlname` VALUES ('4', 'Order', 'third', '订单测试处理流程3', '0');
+INSERT INTO `ecs_order_controlname` VALUES ('5', 'Order', 'four', '订单测试处理流程4', '0');
+INSERT INTO `ecs_order_controlname` VALUES ('6', 'Order', 'end', '订单测试处理流程结束', '0');
 
 -- ----------------------------
 -- Table structure for ecs_order_goods
@@ -264,7 +272,7 @@ CREATE TABLE `ecs_order_goods` (
   PRIMARY KEY (`rec_id`),
   KEY `order_id` (`order_id`),
   KEY `goods_id` (`goods_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4368 DEFAULT CHARSET=utf8 COMMENT='订单关联的商品表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单关联的商品表';
 
 -- ----------------------------
 -- Records of ecs_order_goods
@@ -281,7 +289,7 @@ CREATE TABLE `ecs_order_info` (
   `order_status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '订单状态',
   `shipping_status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '物流状态',
   `pay_status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '支付状态',
-  `action_sort` text NOT NULL COMMENT '订单流程排序',
+  `action_sort` int(11) DEFAULT '1',
   `status_tpid` int(11) NOT NULL DEFAULT '0' COMMENT '状态模板字段',
   `consignee` varchar(60) NOT NULL DEFAULT '' COMMENT '真实姓名',
   `country` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT '国家',
@@ -369,10 +377,10 @@ CREATE TABLE `ecs_order_info` (
 -- ----------------------------
 -- Records of ecs_order_info
 -- ----------------------------
-INSERT INTO `ecs_order_info` VALUES ('2185', '2014092533950', '4', '0', '0', '0', '[\"first\",\"second\",\"third\",\"four\"]', '1', '吴星星', '1', '31', '388', '33', '高新区聚贤路1515号', '0', '0', '0', '', '', '', '', '315000', '8898999', '137006221455', '', '', '', '1', '中通速递', '1', '支付宝', '', '', '', '', '', '', '', '', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0', '0.00', '0.00', '0', '0', '', '', '', '1425242137', '1425242137', '1425242137', '1425242137', '0', '0', '0', '', '0', '', '0', '', '0.00', '0', '0', '0', '23', '0', '0', '0');
-INSERT INTO `ecs_order_info` VALUES ('2186', '2014092533923', '4', '0', '0', '0', '[\"first\",\"four\",\"third\",\"second\"]', '1', '吴星星2', '1', '31', '388', '33', '高新区聚贤路1515号', '0', '0', '0', '', '', '', '', '315000', '8898999', '137006221455', '', '', '', '1', '中通速递', '1', '支付宝', '', '', '', '', '', '', '', '', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0', '0.00', '0.00', '0', '0', '', '', '', '1425242137', '1425242137', '1425242137', '2185', '0', '0', '0', '', '0', '', '0', '', '0.00', '0', '0', '0', '23', '0', '0', '0');
-INSERT INTO `ecs_order_info` VALUES ('2187', '2014092533927', '4', '0', '0', '0', '[\"first\",\"second\",\"third\",\"four\"]', '1', '吴星星3', '1', '31', '388', '33', '高新区聚贤路1515号', '0', '0', '0', '', '', '', '', '315000', '8898999', '137006221455', '', '', '', '1', '中通速递', '1', '支付宝', '', '', '', '', '', '', '', '', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0', '0.00', '0.00', '0', '0', '', '', '', '1425242137', '1425242137', '1425242137', '2185', '0', '0', '0', '', '0', '', '0', '', '0.00', '0', '0', '0', '23', '0', '0', '0');
-INSERT INTO `ecs_order_info` VALUES ('2188', '2014092537427', '4', '0', '0', '0', '[\"four\",\"first\",\"second\",\"third\"]', '1', '吴星星4', '1', '31', '388', '33', '高新区聚贤路1515号', '0', '0', '0', '', '', '', '', '315000', '8898999', '137006221455', '', '', '', '1', '中通速递', '1', '支付宝', '', '', '', '', '', '', '', '', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0', '0.00', '0.00', '0', '0', '', '', '', '1425242137', '1425242137', '1425242137', '2185', '0', '0', '0', '', '0', '', '0', '', '0.00', '0', '0', '0', '23', '0', '0', '0');
+INSERT INTO `ecs_order_info` VALUES ('2185', '2014092533950', '4', '0', '0', '0', '1', '1', '吴星星', '1', '31', '388', '33', '高新区聚贤路1515号', '0', '0', '0', '', '', '', '', '315000', '8898999', '137006221455', '', '', '', '1', '中通速递', '1', '支付宝', '', '', '', '', '', '', '', '', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0', '0.00', '0.00', '0', '0', '', '', '', '1425242137', '1425242137', '1425242137', '1425242137', '0', '0', '0', '', '0', '', '0', '', '0.00', '0', '0', '0', '23', '0', '0', '0');
+INSERT INTO `ecs_order_info` VALUES ('2186', '2014092533923', '4', '0', '0', '0', '1', '1', '吴星星2', '1', '31', '388', '33', '高新区聚贤路1515号', '0', '0', '0', '', '', '', '', '315000', '8898999', '137006221455', '', '', '', '1', '中通速递', '1', '支付宝', '', '', '', '', '', '', '', '', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0', '0.00', '0.00', '0', '0', '', '', '', '1425242137', '1425242137', '1425242137', '2185', '0', '0', '0', '', '0', '', '0', '', '0.00', '0', '0', '0', '23', '0', '0', '0');
+INSERT INTO `ecs_order_info` VALUES ('2187', '2014092533927', '4', '0', '0', '0', '1', '1', '吴星星3', '1', '31', '388', '33', '高新区聚贤路1515号', '0', '0', '0', '', '', '', '', '315000', '8898999', '137006221455', '', '', '', '1', '中通速递', '1', '支付宝', '', '', '', '', '', '', '', '', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0', '0.00', '0.00', '0', '0', '', '', '', '1425242137', '1425242137', '1425242137', '2185', '0', '0', '0', '', '0', '', '0', '', '0.00', '0', '0', '0', '23', '0', '0', '0');
+INSERT INTO `ecs_order_info` VALUES ('2188', '2014092537427', '4', '0', '0', '0', '1', '1', '吴星星4', '1', '31', '388', '33', '高新区聚贤路1515号', '0', '0', '0', '', '', '', '', '315000', '8898999', '137006221455', '', '', '', '1', '中通速递', '1', '支付宝', '', '', '', '', '', '', '', '', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0', '0.00', '0.00', '0', '0', '', '', '', '1425242137', '1425242137', '1425242137', '2185', '0', '0', '0', '', '0', '', '0', '', '0.00', '0', '0', '0', '23', '0', '0', '0');
 
 -- ----------------------------
 -- Table structure for ecs_order_sort
@@ -490,7 +498,7 @@ CREATE TABLE `ecs_shop` (
   `is_recommend` int(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否推荐 1是推荐',
   `shop_Qrcode` varchar(255) DEFAULT NULL COMMENT '店铺二维码',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1220 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of ecs_shop
@@ -549,7 +557,7 @@ CREATE TABLE `ecs_users` (
   KEY `parent_id` (`parent_id`) USING BTREE,
   KEY `flag` (`flag`) USING BTREE,
   KEY `user_name` (`user_name`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=41322 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of ecs_users
