@@ -5,5 +5,6 @@ api 商城api目录<br>
 shop web商城<br>
 wap  wap版商城<br>
 gl   后台管理<br>
+sf   静态文件<br>
 data 数据库脚本 默认数据库名为myshop<br>
 thinkphp thinkphp框架文件库<br>
