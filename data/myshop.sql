@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
-Source Server Version : 50527
-Source Host           : 127.0.0.1:3306
+Source Server         : localhost_3306
+Source Server Version : 50712
+Source Host           : localhost:3306
 Source Database       : myshop
 
 Target Server Type    : MYSQL
-Target Server Version : 50527
+Target Server Version : 50712
 File Encoding         : 65001
 
-Date: 2016-05-28 11:15:21
+Date: 2016-05-30 00:29:33
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -213,7 +213,7 @@ DROP TABLE IF EXISTS `ecs_order_controlname`;
 CREATE TABLE `ecs_order_controlname` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'order控制器内方法名称',
   `cname` varchar(255) DEFAULT NULL COMMENT 'control控制器名称',
-  `controlname` varchar(255) DEFAULT NULL,
+  `fname` varchar(255) DEFAULT NULL,
   `depict` varchar(255) DEFAULT NULL COMMENT '控制器描述',
   `is_del` tinyint(4) DEFAULT '0' COMMENT '逻辑删除标志',
   PRIMARY KEY (`id`)
@@ -378,9 +378,9 @@ CREATE TABLE `ecs_order_info` (
 -- Records of ecs_order_info
 -- ----------------------------
 INSERT INTO `ecs_order_info` VALUES ('2185', '2014092533950', '4', '0', '0', '0', '1', '1', '吴星星', '1', '31', '388', '33', '高新区聚贤路1515号', '0', '0', '0', '', '', '', '', '315000', '8898999', '137006221455', '', '', '', '1', '中通速递', '1', '支付宝', '', '', '', '', '', '', '', '', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0', '0.00', '0.00', '0', '0', '', '', '', '1425242137', '1425242137', '1425242137', '1425242137', '0', '0', '0', '', '0', '', '0', '', '0.00', '0', '0', '0', '23', '0', '0', '0');
-INSERT INTO `ecs_order_info` VALUES ('2186', '2014092533923', '4', '0', '0', '0', '1', '1', '吴星星2', '1', '31', '388', '33', '高新区聚贤路1515号', '0', '0', '0', '', '', '', '', '315000', '8898999', '137006221455', '', '', '', '1', '中通速递', '1', '支付宝', '', '', '', '', '', '', '', '', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0', '0.00', '0.00', '0', '0', '', '', '', '1425242137', '1425242137', '1425242137', '2185', '0', '0', '0', '', '0', '', '0', '', '0.00', '0', '0', '0', '23', '0', '0', '0');
-INSERT INTO `ecs_order_info` VALUES ('2187', '2014092533927', '4', '0', '0', '0', '1', '1', '吴星星3', '1', '31', '388', '33', '高新区聚贤路1515号', '0', '0', '0', '', '', '', '', '315000', '8898999', '137006221455', '', '', '', '1', '中通速递', '1', '支付宝', '', '', '', '', '', '', '', '', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0', '0.00', '0.00', '0', '0', '', '', '', '1425242137', '1425242137', '1425242137', '2185', '0', '0', '0', '', '0', '', '0', '', '0.00', '0', '0', '0', '23', '0', '0', '0');
-INSERT INTO `ecs_order_info` VALUES ('2188', '2014092537427', '4', '0', '0', '0', '1', '1', '吴星星4', '1', '31', '388', '33', '高新区聚贤路1515号', '0', '0', '0', '', '', '', '', '315000', '8898999', '137006221455', '', '', '', '1', '中通速递', '1', '支付宝', '', '', '', '', '', '', '', '', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0', '0.00', '0.00', '0', '0', '', '', '', '1425242137', '1425242137', '1425242137', '2185', '0', '0', '0', '', '0', '', '0', '', '0.00', '0', '0', '0', '23', '0', '0', '0');
+INSERT INTO `ecs_order_info` VALUES ('2186', '2014092533923', '4', '0', '0', '0', '2', '1', '吴星星2', '1', '31', '388', '33', '高新区聚贤路1515号', '0', '0', '0', '', '', '', '', '315000', '8898999', '137006221455', '', '', '', '1', '中通速递', '1', '支付宝', '', '', '', '', '', '', '', '', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0', '0.00', '0.00', '0', '0', '', '', '', '1425242137', '1425242137', '1425242137', '2185', '0', '0', '0', '', '0', '', '0', '', '0.00', '0', '0', '0', '23', '0', '0', '0');
+INSERT INTO `ecs_order_info` VALUES ('2187', '2014092533927', '4', '0', '0', '0', '3', '1', '吴星星3', '1', '31', '388', '33', '高新区聚贤路1515号', '0', '0', '0', '', '', '', '', '315000', '8898999', '137006221455', '', '', '', '1', '中通速递', '1', '支付宝', '', '', '', '', '', '', '', '', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0', '0.00', '0.00', '0', '0', '', '', '', '1425242137', '1425242137', '1425242137', '2185', '0', '0', '0', '', '0', '', '0', '', '0.00', '0', '0', '0', '23', '0', '0', '0');
+INSERT INTO `ecs_order_info` VALUES ('2188', '2014092537427', '4', '0', '0', '0', '4', '1', '吴星星4', '1', '31', '388', '33', '高新区聚贤路1515号', '0', '0', '0', '', '', '', '', '315000', '8898999', '137006221455', '', '', '', '1', '中通速递', '1', '支付宝', '', '', '', '', '', '', '', '', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0', '0.00', '0.00', '0', '0', '', '', '', '1425242137', '1425242137', '1425242137', '2185', '0', '0', '0', '', '0', '', '0', '', '0.00', '0', '0', '0', '23', '0', '0', '0');
 
 -- ----------------------------
 -- Table structure for ecs_order_sort
@@ -397,10 +397,10 @@ CREATE TABLE `ecs_order_sort` (
 -- ----------------------------
 -- Records of ecs_order_sort
 -- ----------------------------
-INSERT INTO `ecs_order_sort` VALUES ('1', '正常流程', '[\"first\",\"second\",\"third\",\"four\"]', '0');
-INSERT INTO `ecs_order_sort` VALUES ('2', '先退货后付款', '[\"first\",\"four\",\"third\",\"second\"]', '0');
-INSERT INTO `ecs_order_sort` VALUES ('3', '不付款先拿货', '[\"first\",\"second\",\"third\",\"four\"]', '0');
-INSERT INTO `ecs_order_sort` VALUES ('4', '直接抢劫', '[\"four\",\"first\",\"second\",\"third\"]', '0');
+INSERT INTO `ecs_order_sort` VALUES ('1', '正常流程', '[{\"cname\":\"Order\",\"methodname\":\"first\"},{\"cname\":\"Order\",\"methodname\":\"second\"},{\"cname\":\"Order\",\"methodname\":\"third\"},{\"cname\":\"Order\",\"methodname\":\"four\"},{\"cname\":\"Order\",\"methodname\":\"end\"}]', '0');
+INSERT INTO `ecs_order_sort` VALUES ('2', '先退货后付款', '[{\"cname\":\"Order\",\"methodname\":\"second\"},{\"cname\":\"Order\",\"methodname\":\"first\"},{\"cname\":\"Order\",\"methodname\":\"third\"},{\"cname\":\"Order\",\"methodname\":\"four\"},{\"cname\":\"Order\",\"methodname\":\"end\"}]', '0');
+INSERT INTO `ecs_order_sort` VALUES ('3', '不付款先拿货', '[{\"cname\":\"Order\",\"methodname\":\"third\"},{\"cname\":\"Order\",\"methodname\":\"first\"},{\"cname\":\"Order\",\"methodname\":\"second\"},{\"cname\":\"Order\",\"methodname\":\"four\"},{\"cname\":\"Order\",\"methodname\":\"end\"}]', '0');
+INSERT INTO `ecs_order_sort` VALUES ('4', '直接抢劫', '[{\"cname\":\"Order\",\"methodname\":\"four\"},{\"cname\":\"Order\",\"methodname\":\"first\"},{\"cname\":\"Order\",\"methodname\":\"second\"},{\"cname\":\"Order\",\"methodname\":\"third\"},{\"cname\":\"Order\",\"methodname\":\"end\"}]', '0');
 
 -- ----------------------------
 -- Table structure for ecs_order_template
@@ -503,6 +503,135 @@ CREATE TABLE `ecs_shop` (
 -- ----------------------------
 -- Records of ecs_shop
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for ecs_think_access
+-- ----------------------------
+DROP TABLE IF EXISTS `ecs_think_access`;
+CREATE TABLE `ecs_think_access` (
+  `role_id` smallint(6) unsigned NOT NULL,
+  `node_id` smallint(6) unsigned NOT NULL,
+  `level` tinyint(1) NOT NULL,
+  `module` varchar(50) DEFAULT NULL,
+  `pid` smallint(6) NOT NULL,
+  KEY `groupId` (`role_id`),
+  KEY `nodeId` (`node_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ecs_think_access
+-- ----------------------------
+INSERT INTO `ecs_think_access` VALUES ('108', '30', '3', null, '18');
+INSERT INTO `ecs_think_access` VALUES ('108', '21', '3', null, '18');
+INSERT INTO `ecs_think_access` VALUES ('108', '18', '2', null, '1');
+INSERT INTO `ecs_think_access` VALUES ('108', '1', '1', null, '0');
+INSERT INTO `ecs_think_access` VALUES ('108', '19', '3', null, '18');
+
+-- ----------------------------
+-- Table structure for ecs_think_node
+-- ----------------------------
+DROP TABLE IF EXISTS `ecs_think_node`;
+CREATE TABLE `ecs_think_node` (
+  `id` smallint(6) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  `title` varchar(50) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT '0',
+  `remark` varchar(255) DEFAULT NULL,
+  `sort` smallint(6) unsigned DEFAULT NULL,
+  `pid` smallint(6) unsigned NOT NULL,
+  `level` tinyint(1) unsigned NOT NULL,
+  `is_show` int(2) DEFAULT '0',
+  `url` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `level` (`level`),
+  KEY `pid` (`pid`),
+  KEY `status` (`status`),
+  KEY `name` (`name`)
+) ENGINE=MyISAM AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ecs_think_node
+-- ----------------------------
+INSERT INTO `ecs_think_node` VALUES ('1', 'Home', '管理首页', '1', '项目名', null, '0', '1', '0', null);
+INSERT INTO `ecs_think_node` VALUES ('55', 'sindex', '自定义订单状态', '1', '操作名', null, '52', '3', '1', 'Order/sindex');
+INSERT INTO `ecs_think_node` VALUES ('54', 'cindex', '映射表管理', '1', '操作名', null, '52', '3', '1', 'Order/cindex');
+INSERT INTO `ecs_think_node` VALUES ('53', 'index', '订单流程管理', '1', '操作名', null, '52', '3', '1', 'Order/index');
+INSERT INTO `ecs_think_node` VALUES ('13', 'Admin', '管理员管理', '1', '模块名', null, '1', '2', '1', null);
+INSERT INTO `ecs_think_node` VALUES ('14', 'admin_index', '管理员列表', '1', '操作名', null, '13', '3', '1', 'Admin/admin_index');
+INSERT INTO `ecs_think_node` VALUES ('15', 'details', '管理员详情', '1', '操作名', null, '13', '3', '0', null);
+INSERT INTO `ecs_think_node` VALUES ('16', 'edit_admin', '管理员添加修改', '1', '操作名', null, '13', '3', '0', null);
+INSERT INTO `ecs_think_node` VALUES ('17', 'del_admin', '管理员删除', '1', '操作名', null, '13', '3', '0', null);
+INSERT INTO `ecs_think_node` VALUES ('18', 'Role', '角色管理', '1', '模块名', null, '1', '2', '1', null);
+INSERT INTO `ecs_think_node` VALUES ('19', 'role_index', '角色列表', '1', '操作名', null, '18', '3', '1', 'Role/role_index');
+INSERT INTO `ecs_think_node` VALUES ('20', 'role_details', '角色详情', '1', '操作名', null, '18', '3', '0', null);
+INSERT INTO `ecs_think_node` VALUES ('21', 'edit_role', '角色添加修改', '1', '操作名', null, '18', '3', '0', null);
+INSERT INTO `ecs_think_node` VALUES ('22', 'del_role', '角色删除', '1', '操作名', null, '18', '3', '0', null);
+INSERT INTO `ecs_think_node` VALUES ('28', 'admin_add', '管理员添加页面', '1', '操作名', null, '13', '3', '1', 'Admin/admin_add');
+INSERT INTO `ecs_think_node` VALUES ('29', 'dict_info', '添加字典数据页面', '1', '操作名', null, '8', '3', '1', 'dict/dict_info');
+INSERT INTO `ecs_think_node` VALUES ('30', 'role_add', '角色添加页面', '1', '操作名', null, '18', '3', '1', 'Role/role_add');
+INSERT INTO `ecs_think_node` VALUES ('52', 'Order', '流程模板', '1', '操作名', null, '1', '2', '1', null);
+
+-- ----------------------------
+-- Table structure for ecs_think_role
+-- ----------------------------
+DROP TABLE IF EXISTS `ecs_think_role`;
+CREATE TABLE `ecs_think_role` (
+  `id` smallint(6) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  `pid` smallint(6) DEFAULT NULL,
+  `status` tinyint(1) unsigned DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pid` (`pid`),
+  KEY `status` (`status`)
+) ENGINE=MyISAM AUTO_INCREMENT=117 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ecs_think_role
+-- ----------------------------
+INSERT INTO `ecs_think_role` VALUES ('115', '测试1', '0', '1', '多算胜少算搜索');
+INSERT INTO `ecs_think_role` VALUES ('116', '士大夫', '0', '1', '的说法');
+
+-- ----------------------------
+-- Table structure for ecs_think_role_user
+-- ----------------------------
+DROP TABLE IF EXISTS `ecs_think_role_user`;
+CREATE TABLE `ecs_think_role_user` (
+  `role_id` mediumint(9) unsigned DEFAULT NULL,
+  `user_id` char(32) DEFAULT NULL,
+  KEY `group_id` (`role_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ecs_think_role_user
+-- ----------------------------
+INSERT INTO `ecs_think_role_user` VALUES ('108', '32');
+INSERT INTO `ecs_think_role_user` VALUES ('108', '40');
+
+-- ----------------------------
+-- Table structure for ecs_think_user
+-- ----------------------------
+DROP TABLE IF EXISTS `ecs_think_user`;
+CREATE TABLE `ecs_think_user` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT '用户id',
+  `account` varchar(64) NOT NULL COMMENT '用户名',
+  `nickname` varchar(50) DEFAULT NULL COMMENT '用户真实姓名',
+  `password` char(32) NOT NULL COMMENT 'MD5加密的密码',
+  `last_login_time` int(11) DEFAULT NULL,
+  `last_login_ip` varchar(40) DEFAULT NULL,
+  `login_count` mediumint(8) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `create_time` int(11) NOT NULL,
+  `update_time` int(11) DEFAULT NULL,
+  `status` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ecs_think_user
+-- ----------------------------
+INSERT INTO `ecs_think_user` VALUES ('21', 'admin', null, 'e10adc3949ba59abbe56e057f20f883e', '1464538540', '0.0.0.0', '4', '', '1438911149', '1464538540', '1');
 
 -- ----------------------------
 -- Table structure for ecs_users
