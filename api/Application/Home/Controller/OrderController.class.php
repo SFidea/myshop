@@ -45,7 +45,7 @@ class OrderController extends Controller {
         if($result == NULL){
             json_return(0, '', '无此订单流程', 1);
         }else{
-            json_return(1, $result, '得到订单执行流程', 1);
+            json_return(1, $result[0], '得到订单执行流程', 1);
         }
     }
 

@@ -1,0 +1,125 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>{$title.one_title}-后台管理</title>
+
+    <include file="Common/css_link"/>
+</head>
+<body>
+<!--头部-->
+<include file="Common/header"/>
+
+<!--左侧导航-->
+<include file="Common/left"/>
+
+<!--内容-->
+<section class="main" >
+    <div class="main-mini">首页 &gt;{$title.one_title} &gt;{$title.two_title}</div>
+
+    <div class="content seo-editor">
+        <form id="admin_add">
+            <input type="hidden" id="id" value="{$details.id}"/>
+            <p>
+                <span>用户名称：</span>
+                <input type="text" value="{$details.account}" class="account">
+            </p>
+            <p>
+                <span>Email：</span>
+                <input type="email" value="{$details.email}" class="email">
+            </p>
+            <p>
+                <span>用户密码：</span>
+                <input type="password" class="password" value="">
+            </p>
+            <gt name="details['id']" value="0">
+                <p style="padding:0 0 10px 100px;color:red">如果不输入密码，默认表示不修改此账号密码</p>
+            </gt>
+            
+            <gt name="details['id']" value="0">
+            <p>
+                <span>新密码：</span>
+                <input type="password" class="new_password" value="">
+            </p>
+            </gt>
+
+            <p>
+                <span>确认密码：</span>
+                <input type="password" class="affirm_password" value="">
+            </p>
+            <p>
+                <span>用户角色管理</span>
+                <volist name="content" id="vo">
+                  <php>if(in_array($vo['id'],$role)){</php>
+                    <label><input type="checkbox" value="{$vo.id}" name="role" checked="checked">{$vo.name}</label>
+                  <php>}else{</php>
+                    <label><input type="checkbox" value="{$vo.id}" name="role">{$vo.name}</label>
+                  <php>}</php>
+                </volist>
+            </p>
+            <input type="button" id="submit" class="am-btn am-btn-success" value="提交"/>
+            <input id="subreturn"  style="margin-left: 30px" type="reset" class="am-btn am-btn-danger" value="取消"/>
+            <!--<a href="javascript:void(0);" class="am-btn am-btn-success">
+                提交
+            </a>-->
+        </form>
+        
+    </div>
+
+</section>
+
+<input type="hidden" class="url" value="{:c('gl_domain')}{$_SESSION.page_http_referer}" />
+</body>
+<include file="Common/js_script"/>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#subreturn").click(function(){
+            window.location.href =$('#gl_domain').val()+'Admin/admin_index';
+        });
+        $("#submit").click(function(){
+            var checked = [];
+            $('input:checkbox[name="role"]:checked').each(function() {
+                checked.push($(this).val());
+            });
+            var account=$('.account').val();
+            var email=$('.email').val();
+            var id=$('#id').val();
+            var password=$('.password').val();
+            var new_password=$('.new_password').val();
+            var affirm_password=$('.affirm_password').val();
+            var url =  $('.url').val();
+
+            $.ajax({
+                type:'post',
+                data:{id:id,account:account,email:email,password:password,new_password:new_password,affirm_password:affirm_password,role:checked},
+                url:$('#gl_domain').val()+'Admin/edit_admin',
+                dataType:'json',
+                success:function(data){
+                    if(data.data=='update'){
+                        if(data.status==1){
+                            alert(data.message);
+                            window.location.href = url;
+                        }else{
+                            alert(data.message);
+                            window.location.href =$('#gl_domain').val()+'Admin/details?id='+id;
+
+                        }
+                    }else{
+                        if(data.status==1){
+                            alert(data.message);
+                            window.location.href =$('#gl_domain').val()+'Admin/admin_index';
+                        }else{
+                            alert(data.message);
+                            window.location.href =$('#gl_domain').val()+'Admin/admin_add';
+
+                        }
+                    }
+                }
+            });
+        });
+    });
+</script>
+</html>

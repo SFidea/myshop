@@ -1,0 +1,31 @@
+<php>
+    $NodeList = A('Index')->leftMenuList(); //菜单栏
+    $path = $_SERVER['PATH_INFO'];
+    if(!empty($path)){
+    $parr = explode('/', $path);
+    }
+</php>
+
+<aside>
+    <div class="arrow"></div>
+    <ul class="nav">
+        <volist name="NodeList" id="first" key="key">
+            <php>//一级菜单
+                $active = ($parr[0]==$first['name']) ? 'active' : '';
+                $style = ($parr[0]==$first['name']) ? 'style="display: block;" ' : '';
+            </php>
+            <li class="nav-one {$active}">
+                <a href="javascript:void(0);">{$first.title}</a>
+                <ul class="nav-er" {$style}>
+                    <volist name="first[second_list]" id="second">
+                        <li>
+                            <a href="{:c('gl_domain')}{$second.url}">{$second.title}</a>
+                        </li>
+                    </volist>
+                </ul>
+            </li>
+        </volist>
+    </ul>
+</aside>
+
+

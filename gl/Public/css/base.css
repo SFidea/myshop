@@ -1,0 +1,205 @@
+/* CSS Document */
+/**
+ * @name: base style
+ * @author: CFK
+ * @copyright:  http://www.hy366.com/
+ */
+
+/* 防止用户自定义背景颜色对网页的影响 */
+html{
+	color:#666;background:#fff;
+}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,menu,nav,section {
+	margin:0;padding:0;
+}
+
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+article,aside,details,figcaption,figure,footer,header,menu,nav,section {
+    display:block;
+}
+
+/* 要注意表单元素并不继承父级 font 的问题 */
+body,button,input,select,textarea{
+    font:12px/19px "lucida grande", "lucida sans unicode", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei",Arial, Helvetica, sans-serif;
+}
+input,select,textarea{
+	font-size:100%;
+}
+
+/* 去掉各Table  cell 的边距并让其边重合 */
+table{
+	border-collapse:collapse;border-spacing:0;
+}
+
+/* IE bug fixed: th 不继承 text-align*/
+th{
+	text-align:inherit;
+}
+
+/* 去除默认边框 */
+fieldset,img{
+	border:0;
+}
+
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe{
+	display:block;
+}
+
+/* 去掉 firefox 下此元素的边框 */
+abbr,acronym{
+	border:0;font-variant:normal;
+}
+
+/* 一致的 del 样式 */
+del {
+	text-decoration:line-through;
+}
+
+address,caption,cite,code,dfn,em,th,var,u {
+	font-style:normal;
+	font-weight:500;
+	text-decoration:none;
+}
+
+/* 去掉列表前的标识, li 会继承 */
+ol,ul {
+	list-style:none;
+}
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption,th {
+	text-align:left;
+}
+
+/* 来自yahoo, 让标题都自定义, 适应多个系统应用 */
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+	font-weight:500;
+	
+}
+
+q:before,q:after {
+	content:'';
+}
+
+/* 统一上标和下标 */
+sup {
+	vertical-align:text-top;
+}
+sub {
+	vertical-align:text-bottom;
+}
+
+/* 让链接在 hover 状态下显示下划线 */
+a:hover {
+	text-decoration:underline;
+}
+
+/* 默认不显示下划线，保持页面简洁 */
+ins,a {
+	text-decoration:none;
+}
+
+a{color:#666;}
+
+/* 清理浮动 */
+.fn-clearfix:after {
+	visibility:hidden;
+	display:block;
+	font-size:0;
+	content:" ";
+	clear:both;
+	height:0;
+}
+.fn-clearfix {
+	zoom:1; /* for IE6 IE7 */
+}
+.fn-clear {
+	clear:both;
+	display:block;
+	overflow:hidden;
+	visibility:hidden;
+	width:0;
+	height:0
+}
+
+/* 隐藏, 通常用来与 JS 配合 */
+body .fn-hide {
+	display:none;
+}
+
+/* 设置内联, 减少浮动带来的bug */
+.fn-left,.fn-right {
+	display:inline;
+}
+.fn-left {
+	float:left;
+}
+.fn-right {
+	float:right;
+}
+
+
+/* 
+ * @name: 表单项 
+ * @overview: 通用文本输入框
+ */
+input,button,select{ vertical-align:middle; }
+input,button,textarea,select{ color:#666; }
+input.ui-textIpt{ width:195px;height:17px;padding:2px;border:1px solid #cdcdcd;background:#fff;line-height:17px;/*height:23px;*/}
+input.ui-btnIpt,button.ui-button{ border:0; cursor:pointer;}
+textarea{ padding:3px;border:1px solid #cdcdcd;background:#fff;line-height:19px;}
+select{ height:20px; margin:2px 0 1px 0}
+
+/* 
+ * @name: bug 
+ * @overview: 常用bug处理
+ */
+	
+.bug-defaultHeight{ height:0; font-size:0; overflow:hidden;}
+ 
+ 
+/* 
+ * @name: 常用文本修饰
+ * @overview: 页面常用文本修饰
+ */
+ .ui-textIndent{ text-indent:2em }
+ .ui-fontWeight{ font-weight:700;}
+ .ui-noBg{ background:none !important;}
+ 
+/* 
+ * @name: 常用间距 
+ * @overview: 页面常用间距
+ */
+.ui-marginB10{ margin-bottom:10px!important;}
+.ui-marginT10{ margin-top:10px!important;}
+.ui-marginL10{ margin-left:10px!important;}
+.ui-marginR10{ margin-right:10px!important;}
+
+.ui-marginB20{ margin-bottom:20px!important;}
+.ui-marginT20{ margin-top:20px!important;}
+.ui-marginL20{ margin-left:20px!important;}
+.ui-marginR20{ margin-right:20px!important;}
+
+.ui-marginR8{ margin-right:8px!important;}
+.ui-pdT10{padding-top:10px !important;}
+.ui-pdT20{padding-top:20px !important;}
+ 
+ 
+/* 临时样式  */
+.clearfix:after {
+	visibility:hidden;
+	display:block;
+	font-size:0;
+	content:" ";
+	clear:both;
+	height:0;
+}
+.clearfix {
+	zoom:1; /* for IE6 IE7 */
+}
+
+input.textIpt{ width:195px;height:17px;padding:2px;border:1px solid #cdcdcd;background:#fff;line-height:17px;/*height:23px;*/}

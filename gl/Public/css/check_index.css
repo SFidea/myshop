@@ -1,0 +1,5 @@
+.goods_detail{ padding-left: 70px; padding-bottom: 10px; text-align: left;}
+.goods_detail img{ float: left; margin-left: -70px; height: 60px; width: 60px;}
+.goods_detail p{ line-height: 20px;}
+.goods_detail p.title{ height: 40px;margin-top: 10px; overflow: hidden; text-overflow: ellipsis;}
+.goods_detail p em{ text-decoration: line-through;}

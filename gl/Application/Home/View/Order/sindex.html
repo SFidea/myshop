@@ -1,0 +1,66 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{$title.one_title}-后台管理</title>
+    <include file="Common/css_link"/>
+</head>
+<body >
+<!--头部-->
+<include file="Common/header"/>
+
+<!--左侧导航-->
+<include file="Common/left"/>
+<!--弹窗-->
+<div class="window">
+    <p>确定要删除吗</p>
+    <a class="am-btn am-btn-secondary am-btn-xs table-del" href="javascript:void(0);"><span class="icon-zoom-in">确定</span></a>
+    <a class="am-btn am-btn-secondary am-btn-xs close" href="javascript:void(0);"><span class="icon-zoom-in">取消</span></a>
+</div>
+
+<!--内容-->
+<section class="main" >
+    <!--面包屑-->
+    <div class="main-mini">首页 &gt;{$title.one_title} &gt;{$title.two_title}</div>
+    <a class="am-btn am-btn-secondary  seo-add" href="{:u('Order/orderState_add')}"><span class="icon-zoom-in">自定义状态</span></a>
+    <div class="content job">
+
+            <form class="am-form-inline" role="form" action="{:u('Order/sindex')}" method="post">
+                <div class="am-form-group job-head">
+                    <input type="text" class="am-form-field am-input-sm" placeholder="请输入关键字" value="{:i('seek')}" name="seek">
+                    <button type="submit" class="am-btn am-btn-success">搜索</button>
+                </div>
+            </form>
+
+            <table class="am-table am-table-bordered am-table-radius am-table-striped am-table-hover am-table-centered">
+                <tr>
+                    <th>Id</th>
+                    <th>订单状态</th>
+                    <th>物流状态</th>
+                    <th>支付状态</th>
+                    <th>状态描述</th>
+                    <th width="230">操作</th>
+                </tr>
+                <volist name="content" id="vo">
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.order_status}</td>
+                        <td>{$vo.shipping_status}</td>
+                        <td>{$vo.pay_status}</td>
+                        <td>{$vo.message}</td>
+                        <td>
+                            <a class="am-btn am-btn-success am-btn-xs" href="{:u('Order/stateDetails?id='.$vo['id'])}"><span class="icon-pencil">修改</span></a>
+                            <a class="am-btn am-btn-warning am-btn-xs delete" href="javascript:void(0);" data-id="{$vo.id}" data-url="Order/del_Orderstate"><span class="icon-trash"></span>删除</a>
+                        </td>
+                    </tr>
+                </volist>
+            </table>
+            <include file="Common/page"/>
+    </div>
+</section>
+
+</body>
+<include file="Common/js_script"/>
+
+</html>

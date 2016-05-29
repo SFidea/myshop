@@ -1,0 +1,16 @@
+@charset "UTF-8";
+.job_add{}
+.job_add table{width:100%; font-size: 12px;}
+.job_add table th{width:80px;padding:8px 0;vertical-align:top;line-height: 28px; font-weight: lighter;}
+.job_add table td{padding:8px 0;}
+.job_add table td ul{}
+.job_add table td ul li{ padding: 5px 0 ;}
+.job_add table td .logistics{color:#2f64dc;}
+.job_add table td .ui_btn_01{width:160px;margin-left:10px;}
+.job_add table td select{width:100px;margin-right:10px;}
+.job_add table td label{padding-right:60px;}
+.job_add table td label input{margin-right:5px;}
+.job_add .ipt_text_01{border:1px solid #c8c8c8;width:398px;height: 26px;line-height:26px;padding: 1px 5px;text-indent: 2px;}
+.job_add .ipt_text_02{border:1px solid #c8c8c8;width:148px;height: 26px;line-height:26px;padding: 1px 5px;text-indent: 2px;}
+.job_add .ipt_text_03{border:1px solid #c8c8c8;width:98px;height: 26px;line-height:26px;padding: 1px 5px;text-indent: 2px;}
+.job_textarea{ min-height: 200px; min-width: 500px;}

@@ -1,0 +1,27 @@
+/* CSS Document */
+
+/**
+ * @name: layout style
+ * @author: wxd
+ * @copyright: http://www.vsea.com.cn/
+ */
+
+/*通用样式*/
+
+
+/*按钮样式*/
+.ui_btn_40_red{display:inline-block;height:40px;line-height:40px;text-align:center;background:url(../images/btn_40_red_lt.jpg) no-repeat left center #e1373b;padding-left:4px;font-weight:bold;color:#FFF;font-size:14px;}
+.ui_btn_40_red i{float:right;width:4px;height:40px;line-height:40px;background:url(../images/btn_40_red_rt.jpg) no-repeat right center;}
+.ui_btn_40_red:hover{text-decoration:none;}
+
+
+
+
+
+
+
+
+
+
+
+

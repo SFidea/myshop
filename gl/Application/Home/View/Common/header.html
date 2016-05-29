@@ -1,0 +1,21 @@
+<!--头部-->
+<header>
+    <a href="{:c('main_domain')}"><img src="{:c('gl_domain')}new/images/logo.png" alt="微海汇"/></a>
+    <img src="{:c('gl_domain')}new/images/logo-2.png" alt="后台管理"/>
+    <div class="user">
+        <a href="{:c('gl_domain')}">{$_SESSION['loginAccount']}</a>
+        <a href="javascript:void(0);" class="out">退出</a>
+    </div>
+</header>
+<!--副导航-->
+<ul class="head">
+    <li><a href="{:c('gl_domain')}">首页</a></li>
+</ul>
+<div class="open"></div>
+<!--退出弹窗-->
+<div class="window-out">
+    <p>确定退出后台管理吗</p>
+    <a class="am-btn am-btn-secondary am-btn-xs" href="{:u('Login/dropOut')}"><span class="icon-zoom-in">确定</span></a>
+    <a class="am-btn am-btn-secondary am-btn-xs close" href="javascript:void(0);"><span class="icon-zoom-in">取消</span></a>
+</div>
+<input type="hidden" id="gl_domain" value="{:c('gl_domain')}"/>

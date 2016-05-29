@@ -1,0 +1,629 @@
+/*���岼��*/
+a:hover{
+    text-decoration: none;
+}
+body{
+    background: #f7f7f7;
+    height: 100%;
+    padding-bottom: 30px;
+}
+
+header{
+    width: 100%;
+    height: 80px;
+    background: #f7f7f7;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+}
+.user {
+    float: right;
+    height: 80px;
+    line-height: 80px;
+
+}
+.user a{
+    padding:0 30px 0 0px;
+    font-weight: bold;
+}
+.user a:nth-child(2){
+    color: #0087e8;
+}
+.user a:hover{
+    text-decoration: none;
+}
+.head{
+    position: fixed;
+    top: 80px;
+    height: 40px;
+    background: #FFFFFF;
+    width: 100%;
+    z-index: 19;
+}
+.head li{
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    width: 120px;
+    text-align: center;
+    border-right: 1px solid #ccc;
+    margin: 4px;
+}
+aside{
+    width: 180px;
+    height: 100%;
+    background: #FFFFFF;
+    display:block;
+    position: fixed;
+    top: 122px;
+    left: 0;
+    border-right: 1px solid #dfdfdf;
+}
+.arrow{
+    width: 20px;
+    height: 100%;
+    position: absolute;
+    left: 160px;
+    cursor: pointer;
+    z-index: 9999;
+}
+.open{
+    width: 40px;
+    height: 100%;
+    background: #FFFFFF;
+    position: fixed;
+    cursor: pointer;
+    top: 122px;
+}
+.open:after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: 20px 10px 20px 10px;
+    border-style: solid;
+    border-color :  transparent   transparent  transparent #348fd5 ;
+    position: absolute;
+    top: 300px;
+}
+.arrow:after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: 20px 10px 20px 0px;
+    border-style: solid;
+    border-color : transparent #348fd5  transparent  transparent ;
+    position: absolute;
+    right: 0;
+    top: 300px;
+}
+
+section{
+   /* height: 990px;*/
+    padding: 1px;/*�޸��Ӽ���margin-topʱ�����������ƶ�BUG*/
+    margin-left: 200px;
+    margin-top:120px;
+}
+.window{
+    width: 210px;
+    height: 110px;
+    border: 1px solid #d7d7d7;
+    position: absolute;
+    background: #FFFFFF;
+    left: 0;
+    right: 0;
+    text-align: center;
+    display: none;
+    z-index: 999999999;
+}
+.window-out{
+     width: 210px;
+     height: 110px;
+     border: 1px solid #d7d7d7;
+     position: absolute;
+     background: #FFFFFF;
+     left: 0;
+     right: 0;
+     text-align: center;
+     display: none;
+     z-index: 999999999;
+ }
+.window-password{
+    width: 210px;
+    height: 110px;
+    border: 1px solid #d7d7d7;
+    position: absolute;
+    background: #FFFFFF;
+    left: 0;
+    right: 0;
+    text-align: center;
+    display: none;
+    z-index: 999999999;
+}
+.mask{
+    width: 100%;
+    height: 100%;
+    background: #dfdfdf;
+    opacity: 0.5;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display:none;
+    z-index: 99999;
+}
+.window p{
+    padding-top: 20px;
+}
+.window a{
+  margin: 20px;
+}
+.window-out p{
+    padding-top: 20px;
+}
+.window-out a{
+    margin: 20px;
+}
+.window-password p{
+    padding-top: 20px;
+}
+.window-password a{
+    margin: 20px;
+}
+
+
+
+.main .content{
+    padding: 30px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    margin-top:10px;
+    margin-right: 10px;
+
+
+}
+.index-main{
+    text-align: center;
+    height: 720px;
+}
+.index-main:after{
+    display: inline-block;
+    content:'';
+    width: 0px;
+    height: 100%;
+    vertical-align: middle;
+
+}
+.index-main img{
+    vertical-align: middle;
+}
+.main-mini{
+   padding-top: 20px;
+   font-size: 14px;
+}
+/*��ҳ*/
+.nav a{
+    padding: 0px 0 0 50px;
+    display: inline-block;
+
+}
+.nav-one{
+    background: url("../images/nav-bg.png") no-repeat 30px  24px;
+}
+.nav li{
+    padding-top: 20px;
+    position: relative;
+}
+
+/*.nav>li:after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: 5px 5px 5px 10px;
+    border-style: solid;
+    border-color:  transparent  transparent  transparent #348fd5;
+    position: absolute;
+    top: 24px;
+    left: 30px;
+}
+.active{
+    font-weight: bold;;
+}
+.active:after{
+}*/
+.active{
+    font-weight: bold;
+    background: url("../images/nav-bg2.png") no-repeat 30px  24px;
+}
+
+/*.active:after{
+    border-width: 10px 5px 5px 5px!important;
+    border-color: #348fd5 transparent  transparent  transparent !important;
+    top: 24px !important;
+    left: 28px !important;
+}*/
+
+.nav ul{
+    display: none;
+}
+
+.nav a:hover{
+    text-decoration: none;
+
+}
+
+
+    /*��Ƹ*/
+.job div:nth-child(1){
+  margin-bottom: 20px;
+}
+.job input:nth-child(1){
+    height: 36px;
+    line-height: 36px;
+    margin-right: 20px;
+}
+.job select{
+    height: 36px;
+    width: 200px;
+    border: 1px solid #cccccc;
+    color: #cccccc;
+    margin-right: 20px;
+
+}
+.content button{
+    border-radius: 6px;
+}
+
+
+/*�����Ƹ*/
+.job-add span{
+    display: inline-block;
+    width: 100px;
+    margin-bottom: 20px;
+}
+.job-add input{
+    width: 100px;
+}
+.job-add select{
+    width: 100px;
+}
+.job-add textarea{
+    margin-bottom: 20px;
+}
+.job-add p:last-child{
+    margin-left: 100px;
+}
+.job-add p:last-child a{
+    margin-right: 30px;
+}
+
+/*��������*/
+.seo p{
+    margin-bottom: 30px;
+}
+.seo span{
+    display: inline-block;
+    width: 100px;
+}
+.seo .am-btn{
+    margin-left: 100px;
+}
+
+.seo-massage{
+    float: right;
+
+}
+.seo-massage input{
+    width: 30px;
+    height: 20px!important;
+    line-height: 20px!important;
+    margin: 0!important;
+}
+.seo-massage a{
+    display: inline-block;
+    margin-left: 4px;
+    height: 20px;
+    border: 1px solid #dfdfdf;
+    padding: 2px;
+}
+.seo-massage .active{
+    border: none;
+    color: #d9534f;
+}
+.seo-massage a:hover{
+    text-decoration: none;
+}
+.seo-add {
+    position: absolute;
+    right: 100px;
+    top: 80px;
+    width:130px;
+    border-radius: 10px;
+    z-index: 9;
+}
+.seo-all a{
+    border-radius: 10px;
+    margin-right: 20px;
+}
+.seo-all hr{
+    margin: 20px 0;
+}
+.seo-editor span{
+    display: inline-block;
+    width: 100px;
+    margin-bottom: 20px;
+}
+.seo-editor p>input{
+    width: 200px;
+}
+/*�汾����*/
+.addition-andriod td{
+    vertical-align: middle!important;
+}
+.app-file p{
+    margin-bottom: 20px;
+}
+.app-file span{
+    margin-right: 40px;
+
+}
+.app-flie-add{
+    display: inline-block!important;
+}
+.app-add{
+    top: 70px;
+}
+
+/*ϵͳ����*/
+.user-add label{
+   width: 130px;
+}
+.user-add hr{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.num-add select{
+    height: 21px;
+}
+.num-add input{
+    width: 160px;
+}
+.num-add  option{
+    height: 20px;
+    line-height: 20px;
+}
+#num-tab{
+    width: 120px;
+    height: 25px;
+}
+
+#add-admin em{
+    color: #ea1328;
+}
+.false-info{
+    color: #ea1328;
+    padding-top: 20px;
+    display: none;
+}
+.admin-look span{
+    width: 60px;
+}
+.user-hide{
+    padding-left: 104px;
+    display: none;
+}
+.user-block{
+    position: relative;
+}
+.san{
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: 10px;
+    border-style: solid;
+    border-color :#348fd5  transparent   transparent  transparent  ;
+    position: absolute;
+    top:10px;
+    right: 0;
+    cursor: pointer;
+}
+
+ /*����� */
+.active-add p>span{
+    display: inline-block;
+    width: 100px;
+}
+
+.active-add p{
+    margin-bottom: 20px;
+}
+.active-add em{
+    display: block;
+    padding-left: 100px;
+}
+.active-add em{
+    color: #ea1328;
+}
+.window-active{
+    width: 610px;
+    border: 1px solid #d7d7d7;
+    position: absolute;
+    background: #FFFFFF;
+    left: 0;
+    right: 0;
+    display:none;
+    z-index: 999999;
+}
+.window-active div{
+    padding: 30px;
+}
+.window-active p{
+    margin-bottom: 30px;
+}
+.window-active a{
+    margin: 20px;
+    margin-top: 0;
+}
+.window-active em{
+    color: #ea1328;
+}
+.window-active div span{
+    display: inline-block;
+    width: 100px;
+
+}
+
+
+.window-active2{
+    width: 610px;
+    border: 1px solid #d7d7d7;
+    position: absolute;
+    background: #FFFFFF;
+    left: 0;
+    right: 0;
+    display:none;
+    z-index: 999999;
+}
+.window-active2 div{
+    padding: 30px;
+}
+.window-active2 p{
+    margin-bottom: 30px;
+}
+.window-active2 a{
+    margin: 20px;
+    margin-top: 0;
+}
+.window-active2 em{
+    color: #ea1328;
+}
+.window-active2 div span{
+    display: inline-block;
+    width: 100px;
+
+}
+
+.window-bottom{
+    padding-left: 180px;
+}
+
+.active-img{
+    display: inline-block!important;
+    width: 678px;
+    height: 200px;
+    padding-left: 0!important;
+}
+#imghead{
+    width: 678px;
+    height: 200px;
+}
+
+.examine span{
+    display: inline-block;
+    width: 100px;
+    margin-bottom:30px;
+
+}
+.examine select{
+    width: 200px;
+    height: 30px;
+    margin-right: 20px;
+}
+.examine .active-text{
+
+    text-indent: 2em;
+    margin-bottom: 20px;
+}
+.examine hr{
+    margin-bottom: 20px;
+}
+
+ /*���̹��� */
+.shop table img{
+    width: 18px;
+    height: 18px;
+}
+.shop table td,.shop table th{
+    vertical-align: middle!important;
+}
+.number-top {
+    position: absolute;
+    right: 40px;
+    top: 10px;
+}
+.number-top a{
+    margin-left:30px;
+    border-radius: 10px;
+}
+
+.number-content p{
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+.number-add p{
+    margin-bottom: 20px;
+}
+.number-add span{
+    width: 170px;
+    display: inline-block;
+}
+.number-add select{
+    width: 158px;
+}
+.number-change-add span{
+    width: 100px;
+}
+
+.number-add em{
+    color: #ea1328;
+    display: none;
+}
+.shop-add span{
+    display: inline-block;
+    width: 100px;
+    margin-bottom: 30px;
+}
+
+.shop-class1{
+    width: 100px;
+    height: 200px;
+    float: left;
+}
+
+.shop-class2{
+
+    width: 600px;
+}
+.shop-logo img{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+.shop-add .book img{
+    width: 160px;
+    height: 160px;
+}
+
+/*�����б�*/
+.shop-set-group{
+    padding-bottom: 20px;
+}
+.shop-set input{
+    width: 300px;
+}
+
+/*������Ϣ*/
+#shop-info span{
+    width:150px;
+    text-align: right;
+    margin-right: 10px;
+}
+.card-id{
+    display: inline-block!important;
+}
+
+.btn-file{
+    width: 70px!important;
+}

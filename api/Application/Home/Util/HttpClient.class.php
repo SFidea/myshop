@@ -83,4 +83,28 @@ class HttpClient
     public static function buildQuery($data) {
         return http_build_query($data);
     }
+    
+    //api传值
+    function post_json($data,$url){
+        $post_data = array(
+            'data' => json_encode($data),
+        );
+        ksort($post_data);
+        $content = http_build_query($post_data);
+        $content_length = strlen($content);
+        $options = array('http' => array(
+            'method' => 'POST',
+            'header' => "Content-type: application/x-www-form-urlencoded\r\n" . "Content-length: $content_length\r\n",
+            'content' => $content
+        )
+        );
+        $res = file_get_contents($url, false, stream_context_create($options));
+        return $res;
+    }
+    
+    //api传值
+    function get_json($url){
+        $res=file_get_contents($url);
+        return $res;
+    }
 }

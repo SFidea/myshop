@@ -1,8 +1,67 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: yaoyu
+ * Date: 2016/5/29
+ * Time: 10:48
+ */
 namespace Home\Controller;
 use Think\Controller;
-class IndexController extends Controller {
-    public function index(){
-        $this->show('<style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} body{ background: #fff; font-family: "微软雅黑"; color: #333;font-size:24px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.8em; font-size: 36px } a,a:hover{color:blue;}</style><div style="padding: 24px 48px;"> <h1>:)</h1><p>欢迎使用 <b>ThinkPHP</b>！</p><br/>版本 V{$Think.version}</div><script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script><thinkad id="ad_55e75dfae343f5a1"></thinkad><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script>','utf-8');
+
+class IndexController extends CommonController
+{
+    /**
+     * 后台登录显示页面
+     */
+    public function index()
+    {
+        $this->display();
+    }
+
+    /**
+     * 左边菜单栏列表
+     */
+    public function leftMenuList()
+    {
+        if($_SESSION['loginAccount'] == 'admin'){
+            //是超级管理员，显示所有
+            $first_list = D('Node')->readFirstNode();
+            foreach($first_list as $key=>$first){
+                $second_list = D('Node')->readSecondNode($first['id']);
+                $first_list[$key]['second_list'] = $second_list;
+            }
+            $nodeList = $first_list;
+        }else{
+            //其他管理员，需要角色设置            
+            $role_id_arr = D('RoleUser')->role_user($_SESSION['id']);
+            $node_list_arr = D('Access')->arr_list($role_id_arr);
+            $arr = array_flip(array_flip($node_list_arr));
+            $first = array();//一级菜单
+            $second = array();//二级菜单
+            foreach($arr as $key=>$vo){
+                $node = D('Node')->readNode($vo);
+                if($node['pid']==1){
+                    $first[]= $node;
+                }
+                elseif($node['pid']!=0 and $node['pid']!=1){
+                    $second[]= $node; //二级菜单
+                }
+            }
+            if(empty($first)){
+                json_return(0,'','请联系管理员，您没有本后台的所有权限！');
+            }else{
+                foreach($first as $key1=>$vo1){
+                    foreach($second as $key2=>$vo2){
+                        if($vo2['pid']==$vo1['id']){
+                            $first[$key1]['second_list'][] = $vo2;
+                        }
+                    }
+                }
+                $nodeList = $first;
+            }
+        }
+        return $nodeList;
     }
 }
+
+

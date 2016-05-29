@@ -1,0 +1,77 @@
+
+<script src="{:c('gl_domain')}new/js/index.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/editor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/editor/ueditor.all.js"></script>
+<script type="text/javascript">
+    $('.delete').click(function(){
+        $('.window,.mask').fadeIn();
+        var This= $(this);
+        $('.table-del').click(function(){
+            var id = This.attr('data-id');
+            var url = This.attr('data-url');
+            json_delete(id,url,This);
+        })
+        $('.close').click(function(){
+            $('.window,.mask').fadeOut();
+        })
+    })
+
+    function json_delete(id,url,This){
+        $.ajax({
+            url:$("#gl_domain").val()+url,
+            type:'post',
+            data:'id='+id,
+            dataType:'json',
+            success:function(data){
+                if(data.status == 1){
+                    This.parent().parent().remove();
+                    $('.window,.mask').fadeOut();
+                }else{
+                    alert(data.message);
+                }
+            },
+            error:function(){
+                alert('error');
+            },
+        });
+    };
+    function w_delete(id,url){
+        if (confirm("请确认！\n\n您真的确定要删除此信息吗？")==true){
+            $.ajax({
+                url:$("#gl_domain").val()+url,
+                type:'post',
+                data:'id='+id,
+                dataType:'json',
+                success:function(data){
+                    if(data==1){
+                        window.location.reload();
+                    }else{
+                        alert("删除失败!");
+                    }
+                },
+                error:function(){
+                    alert('error');
+                },
+            });
+        }
+    };
+    function gl_delete(id,url){
+        if (confirm("请确认！\n\n您真的确定要删除此信息吗？")==true){
+            $.ajax({
+                url:$("#gl_domain").val()+url,
+                type:'post',
+                data:'id='+id,
+                dataType:'json',
+                success:function(data){
+                    window.location.reload();
+                },
+                error:function(){
+                    alert('error');
+                },
+            });
+        }
+    };
+</script>
+
+
+

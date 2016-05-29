@@ -15,88 +15,142 @@ class OrderController extends Controller {
     
     //订单处理主流程
     public function index(){
-        $content = "";
         $title = "indexControl";
-        $id = intval(I("get.order_id"));
-        $eventUrl = C('api_domain').'Order/getOrderSort?id ='.$id;
-        $sortJson = json_decode(file_get_contents($eventUrl),true);
-        $sortData = $sortJson['data'];
-        var_dump($sortJson);
+        $id = intval(I("get.order_id"));    //订单id
+        $step = 0;
         
-        $next = "first";
+        $result = D("Order")->order_sort_return($id);
+        if($result == NULL){
+            $this->error("没有找到流程");
+        }
+         
+        $actionList = json_decode($result[0], true);
+        $nextOrder = $actionList[$step]["cname"];
+        $nextFun = $actionList[$step]["methodname"];
+        
+         //步骤加1
+        $step = $step + 1;
         $this->assign('id', $id);
         $this->assign('title',$title);
-        $this->assign('content',$content);
-        $this->assign('next',$next);
+        $this->assign('nextOrder',$nextOrder);
+        $this->assign('nextFun',$nextFun);
+        $this->assign('step',$step);
         $this->display("index");
     }
-
+    
     //订单测试处理流程1
     public function first(){
-        $content = "";
         $title = "first";
         $id = intval(I("get.order_id"));
+        $step = intval(I("get.step"));  //步骤id
         
-        $next = "second";
+        $result = D("Order")->order_sort_return($id);
+        if($result == NULL){
+            $this->error("没有找到流程");
+        }
+        $actionList = json_decode($result[0], true);
+        $nextOrder = $actionList[$step]["cname"];
+        $nextFun = $actionList[$step]["methodname"];
+
+        //步骤加1
+        $step = $step + 1;
         $this->assign('id', $id);
         $this->assign('title',$title);
-        $this->assign('content',$content);
-        $this->assign('next',$next);
+        $this->assign('nextOrder',$nextOrder);
+        $this->assign('nextFun',$nextFun);
+        $this->assign('step',$step);
         $this->display("index");
     }
     
     //订单测试处理流程2
     public function second(){
-       $content = ""; 
-       $title = "second";
-       $id = intval(I("get.order_id"));
+        $title = "second";
+        $id = intval(I("get.order_id"));
+        $step = intval(I("get.step"));  //步骤id
        
-       $next = "third";
-       $this->assign('id', $id);
-       $this->assign('title',$title);
-       $this->assign('content',$content);
-       $this->assign('next',$next);
-       $this->display("index");
+        $result = D("Order")->order_sort_return($id);
+        if($result == NULL){
+            $this->error("没有找到流程");
+        }
+        $actionList = json_decode($result[0], true);
+        $nextOrder = $actionList[$step]["cname"];
+        $nextFun = $actionList[$step]["methodname"];
+        
+        //步骤加1
+        $step = $step + 1;
+        $this->assign('id', $id);
+        $this->assign('title',$title);
+        $this->assign('nextOrder',$nextOrder);
+        $this->assign('nextFun',$nextFun);
+        $this->assign('step',$step);
+        $this->display("index");
     }
     
     //订单测试处理流程3
     public function third(){
-        $content = "";
         $title = "third";
         $id = intval(I("get.order_id"));
+        $step = intval(I("get.step"));  //步骤id
         
-        $next = "four";
+        $result = D("Order")->order_sort_return($id);
+        if($result == NULL){
+            $this->error("没有找到流程");
+        }
+        $actionList = json_decode($result[0], true);
+        $nextOrder = $actionList[$step]["cname"];
+        $nextFun = $actionList[$step]["methodname"];
+        
+        //步骤加1
+        $step = $step + 1;
         $this->assign('id', $id);
         $this->assign('title',$title);
-        $this->assign('content',$content);
-        $this->assign('next',$next);
+        $this->assign('nextOrder',$nextOrder);
+        $this->assign('nextFun',$nextFun);
+        $this->assign('step',$step);
         $this->display("index");
     }
     
     //订单测试处理流程4
     public function four(){
-        $content = "";
         $title = "four";
         $id = intval(I("get.order_id"));
+        $step = intval(I("get.step"));  //步骤id
         
-        $next = "end";
+        $result = D("Order")->order_sort_return($id);
+        if($result == NULL){
+            $this->error("没有找到流程");
+        }
+        $actionList = json_decode($result[0], true);
+        $nextOrder = $actionList[$step]["cname"];
+        $nextFun = $actionList[$step]["methodname"];
+        //步骤加1
+        $step = $step + 1;
         $this->assign('id', $id);
         $this->assign('title',$title);
-        $this->assign('content',$content);
-        $this->assign('next',$next);
+        $this->assign('nextOrder',$nextOrder);
+        $this->assign('nextFun',$nextFun);
+        $this->assign('step',$step);
         $this->display("index");
     }
     
     //订单测试处理流程5
     public function end(){
-        $content = "";
-        $title = "four";
+        $title = "end";
+        $id = intval(I("get.order_id"));
+        $step = intval(I("get.step"));  //步骤id
         
-        $next = "end";
+        $result = D("Order")->order_sort_return($id);
+        if($result == NULL){
+            $this->error("没有找到流程");
+        }
+        $actionList = json_decode($result[0], true);
+        $nextOrder = $actionList[$step]["cname"];
+        $nextFun = $actionList[$step]["methodname"];
         $this->assign('id', $id);
         $this->assign('title',$title);
-        $this->assign('content',$content);
-        $this->assign('next',$next);
+        $this->assign('nextOrder',$nextOrder);
+        $this->assign('nextFun',$nextFun);
+        $this->assign('step',$step);
         $this->display("index");
     }
 }

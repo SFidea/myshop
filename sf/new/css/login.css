@@ -1,0 +1,48 @@
+/*µÇÂ¼½çÃæ*/
+.login{
+    width: 330px;
+    height: 400px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    margin: 100px auto;
+
+}
+.login .head{
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #41cac0;
+    color: #FFFFFF;
+    border-radius: 10px 10px 0 0;
+}
+.login .contain{
+    padding: 18px;
+}
+.login .contain input{
+    border-radius: 6px;
+    border:1px solid #eaeaea;
+    margin-bottom:10px;
+    font-size: 12px;
+}
+.login .contain img{
+    width: 270px;
+    height:75px;
+}
+.login .mima{
+    width: 100%;
+    font-weight: normal;
+}
+.mima span{
+    font-weight: normal;
+}
+.login  .for-mima{
+    color: #41cac0;
+    float: right;
+}
+.login-true{
+    margin-top: 20px;
+    border-radius: 10px;
+}
+.active{
+    color:red;
+}

@@ -12,9 +12,8 @@ and open the template in the editor.
     </head>
     <body>
         <div>title(shop执行控制器内的方法):{$title}</div>
-        <div>content(远程api调用执行的方法):{$content}</div>
-        <php>if($next != "end"){</php>
-            <a href="{:C('main_domain')}order/{$next}?order_id={$id}">转入下一条流程</a>
+        <php>if($title != "end"){</php>
+            <a href="{:C('main_domain')}{$nextOrder}/{$nextFun}?order_id={$id}&step={$step}">转入下一条流程</a>
         <php>}</php>
     </body>
 </html>
