@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keyword" content="后台管理系统-权限">
+
+    <title>{$title}</title>
+    <include file="Common/css_link"/>
+</head>
+<body>
+<input type="hidden" id="api_domain" value="{:c('api_domain')}"/>
+<input type="hidden" id="gl_domain" value="{:c('gl_domain')}"/>
+<input type="hidden" value="{$url}" name="url" class="url"/>
+<!--header start-->
+<include file="Common/header"/>
+<!--header end-->
+<!--sidebar start-->
+<include file="Common/left"/>
+<!--sidebar end-->
+<!--main content start-->
+<section class="main" >
+
+    <!--面包屑-->
+    <div class="main-mini">系统管理 &gt;角色列表&gt;创建订单规则</div>
+    
+        <div class="content seo-editor user-add">
+            <form class="" id="">
+            <p>
+                <span>流程名称：</span>
+                <input type="text" class="role_name" value="{$content.name}"/>
+                <input type="hidden" class="id" value="{$content.id}"/>
+            </p>
+            <p>
+                <span>流程顺序：</span>
+                <textarea name="controlorder" id="controlorder" cols="100" rows="2" value="{$content.controlorder}">{$content.controlorder}</textarea>
+            </p>
+            <hr>
+                <a href="javascript:void(0);" type="submit" id="submit" class="am-btn am-btn-success admin-submit" value="保存"/>保存</a>
+                <input id="subreturn" style="margin-left: 30px" type="reset" class="am-btn am-btn-danger reset" value="取消"/>
+            </form> 
+            </div>
+        <include file="Common/footer"/>
+       </section>
+<!--main content end-->
+
+
+
+<include file="Common/js_script"/>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        
+        $("#subreturn").click(function(){
+            window.location.href =$('#gl_domain').val()+'Order/index';
+        });
+        
+        $("#submit").click(function(){
+            var checked = [];
+            $('input:checkbox[name="message"]:checked').each(function() {
+                checked.push($(this).val());
+            });
+
+            var role_name=$('.role_name').val();
+            var controlorder=$('#controlorder').val();
+            var id=$('.id').val();
+            var url=$('.url').val();
+            
+            $.ajax({
+                type:'post',
+                url:$('#gl_domain').val()+'Order/edit_order',
+                data:{id:id,name:role_name,controlorder:controlorder},
+                dataType:'json',
+                success: function(data){
+                    if(data.data=='update'){
+                        if(data.status>0){
+                            alert(data.message);
+                            window.location.href =url;
+                        }else{
+                            alert(data.message);
+                            window.location.href =$('#gl_domain').val()+'Order/order_details?id='+id;
+                        }
+                    }else{
+                        if(data.status>0){
+                            alert(data.message);
+                            window.location.href =$('#gl_domain').val()+'Order/index';
+                        }else{
+                            alert(data.message);
+                            window.location.href =$('#gl_domain').val()+'Order/order_add';
+
+                        }
+                    }
+                }
+            });
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        select();
+    });
+    function select(){
+        $('.second input').on('click',function(){
+            var B=$(this).attr('checked');
+            var topInput=$(this).parent().parent().prev();
+            if(B!='checked'){
+                topInput.find('input').attr('checked',true);
+            }else{
+                topInput.find('input').attr('checked',false);
+            }
+        })
+    }
+</script>
+</body>
+</html>

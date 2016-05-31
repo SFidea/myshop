@@ -76,4 +76,14 @@ class OrderController extends CommonController{
         $this->assign('title',array('one_title'=>'流程模板','two_title'=>'订单自定义'));
         $this->display();
     }
+    
+    public function order_add(){
+        
+        $this->display();
+    }
+    
+    /**编辑角色**/
+    public function edit_order(){
+       
+    }
 }
