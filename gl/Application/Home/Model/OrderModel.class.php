@@ -34,4 +34,9 @@ class OrderModel extends Model
         $arr=M('order_sort')->field('id,name,controlorder,is_del')->where($where)->limit($first_row,$list_row)->select();
         return array('count'=>$count,'content'=>$arr);
     }
+    
+    public function add_orderSort($data){
+        $num=M('order_sort')->add($data);
+        return $num;
+    }
 }

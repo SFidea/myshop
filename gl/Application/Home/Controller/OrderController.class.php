@@ -82,8 +82,31 @@ class OrderController extends CommonController{
         $this->display();
     }
     
-    /**编辑角色**/
+    /**编辑流程模板**/
     public function edit_order(){
-       
+        $data['id']=intval(i('id'));
+        $data['name']=i('name');
+        $data['controlorder']=i('controlorder');
+        
+        if($data['id']>0){
+            
+        }else{
+            /**添加**/
+            if(!empty($data['name'])){
+                if(!empty($data['controlorder'])){
+                    $param=array('name'=>$data['name'],'controlorder'=>$data['controlorder'],'is_del'=>0);
+                    $res=D('Order')->add_orderSort($param); //增加订单规则
+                    if($res>0){
+                        echo json_encode(array('status'=>1,'data'=>'add','message'=>'添加流程成功'));
+                    }else{
+                        echo json_encode(array('status'=>0,'data'=>'add','message'=>'添加流程失败！请重试！'));
+                    }
+                }else{
+                    echo json_encode(array('status'=>0,'data'=>'add','message'=>'必须有流程'));
+                }
+            }else{
+                echo json_encode(array('status'=>0,'data'=>'add','message'=>'流程名称必须有'));
+            }
+        }
     }
 }
